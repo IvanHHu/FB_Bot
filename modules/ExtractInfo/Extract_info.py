@@ -12,9 +12,8 @@ class Extract_Info():
         for value in gt:
             pictures = ''
             links = ''
-            if 'Sponsored' in value.text:
+            if 'Sponsored' in value.text or 'Publicidad' in value.text:
                     name_company = str(str(value.text).split('\n')[0]).strip()
-                    print(name_company)
                     for x in value.find_elements_by_tag_name('img'):
                         if 'https://scontent.fmex' in x.get_attribute('src') and not '5FB1575B' in x.get_attribute('src'):
                             pics = str(x.get_attribute('src'))
